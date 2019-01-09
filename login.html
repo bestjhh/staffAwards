@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国银行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="js/jquery-2.1.3.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/rem.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+    <div class="fakeloader" >
+        <div class="spinner2">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+<div class="enter-body">
+    <div class="banner">
+        <img src="img/banner.png" alt="">
+    </div>
+    <!--报名资料-->
+    <div class="enterMsg">
+        <form action="">
+            <label for=""><i class="icon-user"></i><input type="text" placeholder="机构/员工号" class="userName" value=""/></label>
+            <label for=""><i class="icon-pwd"></i><input type="password" placeholder="密码" class="password" value=""/></label>
+            <input type="button" class="msgSubmit" value="登录">
+        </form>
+    </div>
+    <div class="messageBox"></div>
+    <div class="comp">xxx提供技术服务支持</div>
+</div>
+<script>
+    let userName,pwd;
+    $(".msgSubmit").on("click",function(){
+        userName = $(".userName").val();
+        pwd = $(".password").val();
+        if(userName==""){
+            $(".messageBox").html("员工号不能为空").show();
+            setTimeout(function(){
+                $(".messageBox").hide()
+            },1000);
+            return
+        }
+        if(pwd==""){
+            $(".messageBox").html("请输入密码").show();
+            setTimeout(function(){
+                $(".messageBox").hide()
+            },1000);
+            return
+        }
+        window.location.href="index.html"
+    });
+    document.onreadystatechange = completeLoading;
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            $('.fakeloader').hide();
+        }
+    }
+</script>
+</body>
+</html>

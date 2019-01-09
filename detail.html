@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国银行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="js/jquery-2.1.3.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/rem.js"></script>
+</head>
+<body>
+    <div class="fakeloader" >
+        <div class="spinner2">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-body">
+        <div class="award-title">
+            <img src="img/award-1.png" alt="">
+            <div class="part">中国银行重庆分行 <span>宣传部</span></div>
+            <p>行长&nbsp;&nbsp;&nbsp;个金条线推荐</p>
+        </div>
+        <div class="pic">
+            <img src="img/team5.jpg" alt="">
+        </div>
+        <div class="vote-btns">
+            <a class="vote-her">投TA一票</a>
+        </div>
+        <div class="intro">
+            <section>
+                该团队在璧山支行业务发展部工作期间，严格履行工作职责，爱岗敬业，业务熟练，负责全辖分期业务和个贷提前还款、中银贷、个人征信等工作。在其牵头组织下，我行与金科等优质房地产开发商开展了车位分期业务，打破了我行分期业务停滞不前的局面，累计完成分期放款5200万元。在长久的业务过程中积累了丰富的工作经验，对风险识别能力较强，其经手的分期业务0不良，根据人民银行要求牵头征信宣传工作，外出宣传场次，为我行树立了良好的口碑和形象。参与我行业务达人小组，积极外出拓展业务，多次上门参加业务宣讲会，并办理信用卡70余张，得到内外部客户和广大员工的充分认可。
+            </section>
+        </div>
+        <div class="messageBox"></div>
+        <!--返回大厅-->
+        <a class="goBack">候选列表</a>
+        <!--技术支持-->
+        <div class="comp">xxx提供技术服务支持</div>
+    </div>
+</body>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var param = GetQueryString("sort");
+    $(".award-title img").attr("src","img/award-"+param+".png");//换标题
+//    返回列表
+    $(".goBack").on("click",function(){
+       window.location.href="voteList.html?sort="+param
+    });
+//    投票
+    $(".vote-btns").on("click",function(){
+        $(".messageBox").html("投票成功").show();
+        setTimeout(function(){
+            $(".messageBox").hide()
+        },1000);
+    });
+    document.onreadystatechange = completeLoading;
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            $('.fakeloader').hide();
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国银行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="js/jquery-2.1.3.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/rem.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+    <div class="fakeloader" >
+        <div class="spinner2">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="index-body">
+        <div class="banner">
+            <img src="img/banner.png" alt="">
+        </div>
+        <div class="index-content">
+            <!--搜索-->
+            <div class="search">
+                <input type="search" placeholder="请输入集体/姓名"/>
+                <i class="icon-search"></i>
+            </div>
+            <!--奖项分类-->
+            <div class="award-sort">
+                <!--集体奖-->
+                <div class="award-group">
+                    <div class="award-title"></div>
+                    <ul class="award-list">
+                        <li><a href="voteList.html?sort=1">中银卓越集体</a></li>
+                        <li><a href="voteList.html?sort=2">条线管理先进集体</a></li>
+                    </ul>
+                </div>
+                <!--个人奖-->
+                <div class="award-personal">
+                    <div class="award-title"></div>
+                    <ul class="award-list">
+                        <li><a href="voteList.html?sort=3">中银卓越个人</a></li>
+                        <li><a href="voteList.html?sort=4">先进个人</a></li>
+                        <li><a href="voteList.html?sort=5">优秀党务工作者</a></li>
+                        <li><a href="voteList.html?sort=6">扶贫工作先进个人</a></li>
+                        <li><a href="voteList.html?sort=7">优秀网点负责人</a></li>
+                        <li><a href="voteList.html?sort=8">优秀中层管理人员</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--活动规则-->
+        <div class="actMsg">
+            <h6>投票规则</h6>
+            <div class="rule-list">
+                <section>
+                    <p> 1、本次集体也要参加票选；</p>
+                    <p>2、界面分奖项进入，集体奖（中银卓越集体、条线管理先进集体）、个人奖（中银卓越个人、先进个人、优秀党务工作者、扶贫工作先进个人、优秀网点负责人、优秀中层管理人员）；</p>
+                    <p>3、投票人分机构和个人，个人凭员工号登陆，机构账号密码由我们分配</p>
+                </section>
+            </div>
+        </div>
+        <!--技术支持-->
+        <div class="comp">xxx提供技术服务支持</div>
+    </div>
+</body>
+<script>
+    //键盘事件检测
+    $(".search input").keyup(function(){
+       if($(this).val()==""){
+           $(".icon-search").css("display","inline-block")
+       }else {
+           $(".icon-search").css("display","none")
+       }
+    }).focus(function(){
+        if($(this).val()==""){
+            $(".icon-search").css("display","inline-block")
+        }else {
+            $(".icon-search").css("display","none")
+        }
+    }).blur(function(){
+        $(".icon-search").css("display","inline-block")
+    });
+    document.onreadystatechange = completeLoading;
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            $('.fakeloader').hide();
+        }
+    }
+</script>
+</html>
